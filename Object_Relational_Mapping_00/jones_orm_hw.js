@@ -39,7 +39,7 @@ async function actors_starting_with(prefix) {
     try {
         let actors = await Actor.query();
         actors.forEach(actor => {
-            if(actor.first_name.startsWith(prefix)) { console.log(actor.getFullName()); }
+            if(actor.first_name.startsWith(prefix) || actor.last_name.startsWith(prefix)) { console.log(actor.getFullName()); }
         });
         knex.destroy();
     } catch(error) {
